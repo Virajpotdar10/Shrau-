@@ -2,297 +2,670 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DYP TOURS & TRAVELLERS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DYP Tours & Travels - Explore the World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your dream vacation with DYP Tours & Travels">
   <meta name="theme-color" content="#000000">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
+    :root {
+      --primary-color: #69cef0;
+      --secondary-color: #f40404;
+      --text-color: #f3e9e9;
+      --bg-color: #000000;
+    }
+    
     body {
-      background-color: #afa9a9;
-      color: #f3e9e9;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
       -webkit-text-size-adjust: 100%;
+      min-width: 320px;
+      overflow-x: hidden;
     }
-
+    
+    /* Header & Navigation */
     .navbar {
-      background-color: #69cef0;
-      padding: 10px 0;
+      background-color: var(--primary-color);
+      padding: 0.8rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
+    
     .navbar-brand {
-      font-size: 1.2rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 60%;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      display: flex;
+      align-items: center;
     }
-
-    .navbar a {
-      color: #f40404;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding: 5px 8px;
+    
+    .navbar-brand i {
+      margin-right: 8px;
     }
-
+    
+    .nav-link {
+      color: var(--secondary-color);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background-color: rgba(255, 243, 243, 0.897);
+    }
+    
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    /* Main Content */
+    .main-header {
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
     #heading1 {
-      animation: float 5s ease-in-out infinite;
-      font-size: 1.8rem;
-      margin-top: 15px;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      animation: float 4s ease-in-out infinite;
     }
-
+    
     @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
-
-    footer .navbar {
-      margin-top: 1rem;
-      padding: 10px 0;
-    }
-
-    .social-icons img {
-      width: 20px;
-      height: 20px;
-      margin: 0 5px;
-    }
-
-    .form-control, .form-label {
-      color: #222222;
-      font-size: 0.9rem;
-    }
-
-    .form-section input {
-      margin-bottom: 0.8rem;
-    }
-
-    .fixed-img {
+    
+    .hero-img {
       width: 100%;
-      height: 150px;
+      max-height: 60vh;
       object-fit: cover;
       border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
-    section {
-      padding: 15px 0;
+    
+    /* Sections */
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 0.5rem;
     }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px !important;
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
     }
-
-    /* Mobile-specific optimizations */
+    
+    .card-img {
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      transition: transform 0.3s ease;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #e9eb73;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(233, 227, 227, 0.2);
+    }
+    
+    .card-body {
+      padding: 1.2rem;
+    }
+    
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background-color: #423e3e;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-control {
+      background-color: #e8dfdf;
+      border: 1px solid #1f1f1f;
+      color: white;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .form-control:focus {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgb(125, 134, 255);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: 600;
+      width: 100%;
+    }
+    
+    .btn-primary:hover {
+      background-color: #5ab8d9;
+    }
+    
+    .contact-info {
+      padding: 1.5rem;
+    }
+    
+    .contact-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #8e8b8b;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #211e1e;
+      color: rgb(255, 251, 251);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .navbar-collapse {
-        background-color: #69cef0;
-        padding: 10px;
-        margin-top: 10px;
-        border-radius: 5px;
+      #heading1 {
+        font-size: 1.6rem;
       }
       
-      .navbar-toggler {
-        border: none;
-        padding: 5px 10px;
+      .section-title {
+        font-size: 1.5rem;
       }
       
-      .navbar-toggler-icon {
-        width: 1.2em;
-        height: 1.2em;
+      .navbar-brand {
+        font-size: 1.1rem;
       }
       
-      #search {
-        margin-top: 10px;
-        width: 100%;
+      .hero-img {
+        max-height: 40vh;
       }
       
-      #searchBtn {
-        width: 100%;
-        margin-left: 0 !important;
-        margin-top: 5px;
+      .card-img {
+        height: 150px;
       }
       
-      .fixed-img {
-        height: 120px;
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
       }
       
-      .col-md-3 {
-        margin-bottom: 15px;
+      .contact-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .navbar-nav {
+        margin-top: 1rem;
+      }
+      
+      .nav-link {
+        margin: 0.2rem 0;
+        text-align: center;
       }
       
       #heading1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light px-3">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><b><i>DYP Tours & Travels</i></b></a>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-plane"></i>DYP Tours & Travels
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="ms-auto d-flex flex-column flex-lg-row align-items-lg-center">
-          <a href="#cont1">Home</a>
-          <a href="#cont2">Places</a>
-          <a href="#cont4">Stay</a>
-          <a href="#cont5">Adventure</a>
-          <a href="#cont3">Contact</a>
-          <input class="form-control form-control-sm mt-2 mt-lg-0 ms-lg-3" id="search" placeholder="Search">
-          <button class="btn btn-outline-primary btn-sm mt-2 mt-lg-0 ms-lg-2" id="searchBtn">Search</button>
-        </div>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#places">Places</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#stay">Stay</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#adventure">Adventure</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex ms-lg-3 mt-3 mt-lg-0">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section class="container text-center my-3" id="cont1">
-    <h1 id="heading1">Welcome to <b>DYP Tours & Travels</b></h1>
-    <img src="https://media.cntraveler.com/photos/64879b50add73e0d14b17f9e/16:9/w_2580,c_limit/Most-Adventurous-things-to-do-in-your-lifetime-(update)_timur-garifov-sisZWCDkmwA-unsplash.jpg" 
-         class="img-fluid mt-3" 
-         alt="Travel Banner"
-         style="max-height: 200px; width: 100%; object-fit: cover;">
+  <!-- Hero Section -->
+  <section class="main-header" id="home">
+    <div class="container">
+      <h1 id="heading1">Discover Your Perfect Journey With Us</h1>
+      <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2580&q=80" 
+           alt="Travel destinations around the world" 
+           class="hero-img">
+    </div>
   </section>
 
   <!-- Places Section -->
-  <section class="container my-3" id="cont2">
-    <h2 class="text-center mb-3">Places</h2>
-    <div class="row g-3">
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuIhmhSMBC44mycWicjO6jHLghQWEmzksW4Q&s" class="img-fluid fixed-img"><p class="text-center mt-2">Paris</p></div>
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQigoJfWCGdP4fnwRnCXQ0rbBTcTGNwC33spA&s" class="img-fluid fixed-img"><p class="text-center mt-2">New York</p></div>
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQmNpxrD9ccoxZ3Q23LOOE93wLr_tMR7LFQ&s" class="img-fluid fixed-img"><p class="text-center mt-2">Tokyo</p></div>
-      <div class="col-6 col-md-3"><img src="https://cdn.britannica.com/43/134743-050-D0625A44/train-first-Dubai-emirate-rapid-transit-line-kind-Sept-10-2009.jpg" class="img-fluid fixed-img"><p class="text-center mt-2">Dubai</p></div>
+  <section class="container py-5" id="places">
+    <h2 class="section-title">Popular Destinations</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Paris, France">
+          <div class="card-body">
+            <h5 class="card-title">Paris, France</h5>
+            <p class="card-text text-center">From $899</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="New York, USA">
+          <div class="card-body">
+            <h5 class="card-title">New York, USA</h5>
+            <p class="card-text text-center">From $799</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Tokyo, Japan">
+          <div class="card-body">
+            <h5 class="card-title">Tokyo, Japan</h5>
+            <p class="card-text text-center">From $1099</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Dubai, UAE">
+          <div class="card-body">
+            <h5 class="card-title">Dubai, UAE</h5>
+            <p class="card-text text-center">From $1299</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Stay Section -->
-  <section class="container my-3" id="cont4">
-    <h2 class="text-center mb-3">Stay</h2>
-    <div class="row g-3">
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69nti-8_ijCzxKdRYCZfKH7wfL4DT7UFltA&s" class="img-fluid fixed-img"><p class="text-center mt-2">Hotel A</p></div>
-      <div class="col-6 col-md-3"><img src="https://www.travelanddestinations.com/wp-content/uploads/2017/03/Beautiful-interiors-at-Hotel-Imperial-Vienna.jpg" class="img-fluid fixed-img"><p class="text-center mt-2">Hotel B</p></div>
-      <div class="col-6 col-md-3"><img src="https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/4:3/w_935,h_701,c_limit/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg" class="img-fluid fixed-img"><p class="text-center mt-2">Hotel C</p></div>
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdwSEUbQrpwY63uLruCuFzarnOW3Pa5NGNUw&s" class="img-fluid fixed-img"><p class="text-center mt-2">Hotel D</p></div>
+  <section class="container py-5" id="stay">
+    <h2 class="section-title">Luxury Stays</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Luxury Hotel A">
+          <div class="card-body">
+            <h5 class="card-title">The Grand Plaza</h5>
+            <p class="card-text text-center">5-star | From $299/night</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Luxury Hotel B">
+          <div class="card-body">
+            <h5 class="card-title">Ocean View Resort</h5>
+            <p class="card-text text-center">5-star | From $349/night</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Luxury Hotel C">
+          <div class="card-body">
+            <h5 class="card-title">Mountain Retreat</h5>
+            <p class="card-text text-center">5-star | From $279/night</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Luxury Hotel D">
+          <div class="card-body">
+            <h5 class="card-title">Desert Oasis</h5>
+            <p class="card-text text-center">5-star | From $319/night</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Adventure Section -->
-  <section class="container my-3" id="cont5">
-    <h2 class="text-center mb-3">Adventure</h2>
-    <div class="row g-3">
-      <div class="col-6 col-md-3"><img src="https://static.wixstatic.com/media/a56ba3_bfb12af785fd40ee9d8439bf00eeb49e~mv2.jpeg/v1/fill/w_1000,h_563,al_c,q_85,usm_0.66_1.00_0.01/a56ba3_bfb12af785fd40ee9d8439bf00eeb49e~mv2.jpeg" class="img-fluid fixed-img"><p class="text-center mt-2">Paragliding</p></div>
-      <div class="col-6 col-md-3"><img src="https://res.cloudinary.com/manawa/image/upload/f_auto,c_limit,w_3840,q_auto/articles/most-beautiful-spots-for-your-first-scuba-dive/61396758347_kwukov" class="img-fluid fixed-img"><p class="text-center mt-2">Scuba Diving</p></div>
-      <div class="col-6 col-md-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFyBiVKTBXZWl4iy8zopeQM3XOyBBsQ2i1dg&s" class="img-fluid fixed-img"><p class="text-center mt-2">Mountaineering</p></div>
-      <div class="col-6 col-md-3"><img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/13/bb/6a/7b.jpg" class="img-fluid fixed-img"><p class="text-center mt-2">Desert Safari</p></div>
+  <section class="container py-5" id="adventure">
+    <h2 class="section-title">Adventure Awaits</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Paragliding Adventure">
+          <div class="card-body">
+            <h5 class="card-title">Paragliding</h5>
+            <p class="card-text text-center">From $149/experience</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Scuba Diving">
+          <div class="card-body">
+            <h5 class="card-title">Scuba Diving</h5>
+            <p class="card-text text-center">From $199/dive</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Mountaineering">
+          <div class="card-body">
+            <h5 class="card-title">Mountaineering</h5>
+            <p class="card-text text-center">From $249/trip</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+               class="card-img" 
+               alt="Desert Safari">
+          <div class="card-body">
+            <h5 class="card-title">Desert Safari</h5>
+            <p class="card-text text-center">From $129/tour</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="container my-3" id="cont3">
-    <h2 class="text-center mb-3">Contact Our Office</h2>
+  <section class="container py-5" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
     <div class="row">
-      <div class="col-md-6 form-section">
-        <label for="Name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="Name" placeholder="Full Name">
-
-        <label for="MOB" class="form-label">Mobile No</label>
-        <input type="tel" class="form-control" id="MOB" placeholder="+91 00000 00000" pattern="[0-9]{10}">
-
-        <label for="email" class="form-label">Email ID</label>
-        <input type="email" class="form-control" id="email" placeholder="abc@gmail.com">
-
-        <label for="Addr" class="form-label">Address</label>
-        <input type="text" class="form-control" id="Addr" placeholder="Your Address">
-
-        <button class="btn btn-primary mt-2 w-100" id="submitBtn">Submit</button>
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
       </div>
-
-      <div class="col-md-6 mt-3 mt-md-0">
-        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> dyptourstravels@gmail.com</p>
-        <p><i class="fas fa-phone"></i> <strong>Mobile:</strong> +91 9158630136</p>
-        <p><i class="fas fa-clock"></i> <strong>Hours:</strong> 9:00 AM - 6:00 PM (Mon-Sat)</p>
+      <div class="col-lg-6">
+        <div class="contact-info">
+          <h3 class="mb-4">Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h5>Address</h5>
+              <p>Dy Patil Kasaba Bawada</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h5>Phone</h5>
+              <p>+91 9764482435</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h5>Email</h5>
+              <p>info@dyptours.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <h5>Working Hours</h5>
+              <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <nav class="navbar">
-      <div class="text-center w-100">
-        <b>© All Rights Reserved | DYP Tours & Travels</b>
-        <div class="social-icons mt-2">
-          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook--v1.png" alt="Facebook"/></a>
-          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"/></a>
-          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"/></a>
-          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"/></a>
-          <a href="https://wa.me/919158630136"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp"/></a>
-        </div>
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://wa.me/919158630136" class="social-icon" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
       </div>
-    </nav>
+      <p class="copyright">© 2025 DYP Tours & Travels. All Rights Reserved.</p>
+    </div>
   </footer>
 
-  <!-- jQuery & Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
-    $(document).ready(function() {
-      // Search functionality
-      $('#searchBtn').click(function () {
-        let query = $('#search').val().toLowerCase();
-        if (query.includes('place')) {
-          $('html, body').animate({ scrollTop: $('#cont2').offset().top - 70 }, 800);
-        } else if (query.includes('stay')) {
-          $('html, body').animate({ scrollTop: $('#cont4').offset().top - 70 }, 800);
-        } else if (query.includes('adventure')) {
-          $('html, body').animate({ scrollTop: $('#cont5').offset().top - 70 }, 800);
-        } else if (query.includes('contact') || query.includes('help')) {
-          $('html, body').animate({ scrollTop: $('#cont3').offset().top - 70 }, 800);
-        } else if (query.includes('home')) {
-          $('html, body').animate({ scrollTop: $('#cont1').offset().top - 70 }, 800);
-        } else {
-          alert('No results found for "' + query + '". Try searching for "Places", "Stay", "Adventure" or "Contact".');
-        }
-      });
-
+    document.addEventListener('DOMContentLoaded', function() {
       // Form submission
-      $('#submitBtn').click(function () {
-        if ($('#Name').val() && $('#MOB').val() && $('#email').val()) {
-          alert("Thanks for contacting DYP Tours & Travels! We'll get back to you soon.");
-          $('#Name, #MOB, #email, #Addr').val('');
-        } else {
-          alert("Please fill in all required fields (Name, Mobile, Email).");
-        }
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Thank you for your message! We will contact you soon.');
+          contactForm.reset();
+        });
+      }
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+              new bootstrap.Collapse(navbarCollapse).hide();
+            }
+          }
+        });
       });
       
-      // Make social icons clickable
-      $('.social-icons a').click(function(e) {
-        e.preventDefault();
-        // In a real implementation, these would link to your social media pages
-        alert('This would link to our social media page in the live version.');
-      });
-      
-      // Better mobile menu handling
-      $('.navbar a').click(function() {
-        if ($(window).width() < 768) {
-          $('.navbar-collapse').collapse('hide');
-        }
-      });
-    });
-    
-    // Prevent zooming on mobile
-    document.addEventListener('gesturestart', function (e) {
-      e.preventDefault();
+      // Search functionality
+      const searchForm = document.querySelector('.navbar form.d-flex');
+      if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const searchInput = this.querySelector('input[type="search"]');
+          const searchTerm = searchInput.value.toLowerCase();
+          
+          let targetSection = null;
+          
+          if (searchTerm.includes('place') || searchTerm.includes('destination')) {
+            targetSection = document.getElementById('places');
+          } else if (searchTerm.includes('stay') || searchTerm.includes('hotel')) {
+            targetSection = document.getElementById('stay');
+          } else if (searchTerm.includes('adventure') || searchTerm.includes('activity')) {
+            targetSection = document.getElementById('adventure');
+          } else if (searchTerm.includes('contact') || searchTerm.includes('help')) {
+            targetSection = document.getElementById('contact');
+          } else if (searchTerm.includes('home') || searchTerm.includes('main')) {
+            targetSection = document.getElementById('home');
+          }
+          
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          } else {
+            alert('No results found for "' + searchTerm + '". Try searching for "Places", "Stay", "Adventure" or "Contact".');
+          }
+          
+          searchInput.value = '';
+        });
+      }
     });
   </script>
-
 </body>
 </html>
